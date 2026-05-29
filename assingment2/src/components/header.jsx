@@ -1,8 +1,9 @@
 function Header() {
   return (
     <div className="header-box">
-        <h1>Water your plants</h1>
-        <p>All the time</p>
+        <h1>WATER PLANT</h1>
+
+        <button className="Add-plant">Add Plant ⊕ </button>
 
     </div>
   );
