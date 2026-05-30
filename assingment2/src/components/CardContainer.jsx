@@ -3,7 +3,6 @@ function CardContainer({children}) {
     <div className="card-container">
         {children}
 
-        
 
     </div>
   );

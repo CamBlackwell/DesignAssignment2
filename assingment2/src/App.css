@@ -1,21 +1,31 @@
-.header-box {
-  background-color: rgb(79, 95, 84);
-  width: 100%;
-  height: 10%;
-  text-align: center;
+
+/* css for the cards */
+.plant-image {
+  width: 100px;
+  height: auto;
+}
+
+.plant-card-header {
   display: flex;
   flex-direction: row;
-  align-items: center ;
-  justify-content: left;
-  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
 }
+
+.plant-card-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .PlantCard {
   background-color: white;
   width: 300px;
-  height: 100px;
+  height: 300px;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 2%;
   margin: 20px;
 }
 
@@ -32,6 +42,18 @@
   justify-content: flex-start;
   padding: 20px;
   box-sizing: border-box;
+}
+/* css for the header bar */
+.header-box {
+  background-color: rgb(79, 95, 84);
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+  justify-content: left;
+  border: 2px solid black;
 }
 
 .Add-plant {
@@ -54,6 +76,7 @@
   font-style: italic;
 }
 
+/* main app css */ 
 .App {
   min-height: 100vh;
   display: flex;

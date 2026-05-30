@@ -10,20 +10,11 @@ function App() {
     <Header />
     <CardContainer>
       <PlantCard />
-      <PlantCard />
-      <PlantCard />
-      <PlantCard />
     
     </CardContainer>
-   
-    
-    
-
 
    </div>
       
-  
-    
   );
 }
 
