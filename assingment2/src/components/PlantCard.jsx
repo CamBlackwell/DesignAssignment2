@@ -1,16 +1,16 @@
-function PlantCard() {
+function PlantCard({name, species, urgency}) {
   return (
     <div className="PlantCard">
         <div>
         <div className = "plant-card-header">
-        <h1>plant name</h1>
+        <h1>{name}</h1>
         <button>settings </button>  
         </div>
         
-        <p>plant species</p>
+        <p>{species}</p>
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
         <div className = "plant-card-footer">
-            <p>urgency status</p>
+            <p>{urgency}</p>
             <button>water plant</button>
         </div>
         </div>

@@ -9,8 +9,16 @@ function App() {
    <div className='App'> 
     <Header />
     <CardContainer>
-      <PlantCard />
-    
+      <PlantCard 
+  name="Aloe Vera" 
+  species="Succulent" 
+  urgency="Water today" 
+/>
+    <PlantCard 
+  name="Jamal" 
+  species="Aloe Vera" 
+  urgency="4 days time" 
+/>
     </CardContainer>
 
    </div>
