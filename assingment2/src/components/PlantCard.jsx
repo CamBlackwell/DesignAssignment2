@@ -15,9 +15,6 @@ function PlantCard({name, species, urgency}) {
         </div>
         </div>
     
-
-
-
     </div>
   );
 }

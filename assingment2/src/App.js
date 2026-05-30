@@ -1,24 +1,31 @@
 import './App.css';
+import react, {use, useState} from 'react';
 import Header from './components/Header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
 
 function App() {
+
+  
+  const [plants, setPlants]= useState([]);
+
+  function addPlant(newPlant) {
+    setPlants([...plants, newPlant]);
+  }
+
   return (
 
    <div className='App'> 
-    <Header />
+    <Header onAddplant = {addPlant}/>
     <CardContainer>
-      <PlantCard 
-  name="Aloe Vera" 
-  species="Succulent" 
-  urgency="Water today" 
-/>
-    <PlantCard 
-  name="Jamal" 
-  species="Aloe Vera" 
-  urgency="4 days time" 
-/>
+     {plants.map((plant, index) => (
+  <PlantCard
+    key={index}
+    name={plant.name}
+    species={plant.species}
+    urgency={plant.urgency}
+  />
+))}
     </CardContainer>
 
    </div>
