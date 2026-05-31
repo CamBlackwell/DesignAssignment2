@@ -1,13 +1,15 @@
 import './App.css';
-import react, {use, useState} from 'react';
+import  {useState} from 'react';
 import Header from './components/Header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
+import AddPlantForm from './components/AddPlantForm';
 
 function App() {
 
   
   const [plants, setPlants]= useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   function addPlant(newPlant) {
     setPlants([...plants, newPlant]);
@@ -16,7 +18,17 @@ function App() {
   return (
 
    <div className='App'> 
-    <Header onAddplant = {addPlant}/>
+    <Header onOpenForm={() => setShowForm(true)} />
+
+      {showForm && (
+        <AddPlantForm
+          onAddPlant={addPlant}
+          onClose={() => setShowForm(false)}
+        />
+      )}
+
+
+
     <CardContainer>
      {plants.map((plant, index) => (
   <PlantCard

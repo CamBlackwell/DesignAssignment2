@@ -1,14 +1,10 @@
-function Header({onAddplant}) {
+function Header({onOpenForm}) {
   return (
     <div className="header-box">
         <h1>WATER PLANT</h1>
 
         <button className="Add-plant" onClick={() =>
-          onAddplant({
-            name: "Aloe Vera",
-            species: "Succulent",
-            urgency: "Needs water"
-          })
+          onOpenForm({})
         }
  >Add Plant ⊕ </button>
 
