@@ -6,7 +6,6 @@ import CardContainer from './components/CardContainer';
 import AddPlantForm from './components/AddPlantForm';
 
 function App() {
-
   
   const [plants, setPlants]= useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -16,7 +15,6 @@ function App() {
   }
 
   return (
-
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
@@ -26,9 +24,7 @@ function App() {
           onClose={() => setShowForm(false)}
         />
       )}
-
-
-
+      
     <CardContainer>
      {plants.map((plant, index) => (
   <PlantCard

@@ -34,19 +34,32 @@ return (
           onChange={handleChange}
         />
 
-        <input
-          name="species"
-          placeholder="Species"
-          value={formData.species}
-          onChange={handleChange}
-        />
+        <select name="species" value={formData.species}
+          onChange={handleChange} required>
+  <option value="">Select species</option>
+<option value="Pothos">Pothos</option>
+<option value="Snake Plant">Snake Plant</option>
+<option value="Fiddle Leaf Fig">Fiddle Leaf Fig</option>
+<option value="Peace Lilly">Peacy Lilly</option>
+<option value="Monstera deliciosa">Monstera deliciosa</option>
+<option value="Succulent / cactus ">Succulent / cactus </option>
+<option value="Basil">Basil</option>
+</select>
 
-        <input
-          name="urgency"
-          placeholder="Urgency"
-          value={formData.urgency}
-          onChange={handleChange}
-        />
+
+
+        <select name="urgency" value={formData.urgency}
+          onChange={handleChange} required>
+  <option value="">Watering Frequency</option>
+<option value="Everyday">Every Day</option>
+<option value="2-3 Days">2-3 Days</option>
+<option value="5-7 Days">5-7 Days</option>
+<option value="7-10 Days">7-10 Days</option>
+<option value="7-14 Days">7-14 Days</option>
+<option value="14-21 Days">14-21 Days</option>
+<option value="21-30 Days">21-30 Days</option>
+</select>
+
 
         <button type="submit">Create Plant</button>
 
