@@ -27,9 +27,7 @@ function App() {
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
-     
-
-    <Dashboard />
+    <Dashboard totalPlants = {plants.length} />
 
       <button onClick={passTime}>
         <p>Time Pass (+1 day)</p>
