@@ -9,11 +9,13 @@ const [formData, setFormData] = useState({
 });
 
 function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  }
+  const { name, value } = e.target;
+
+  setFormData({
+    ...formData,
+    [name]: name === "urgency" && value !== "" ? Number(value) : value
+  });
+}
 
   function handleSubmit(e) {
   e.preventDefault();
@@ -47,17 +49,16 @@ return (
 </select>
 
 
-
-        <select name="urgency" value={formData.urgency}
-          onChange={handleChange} required>
+<select
+  name="urgency" value={formData.urgency} onChange={handleChange} required>
   <option value="">Watering Frequency</option>
-<option value="Everyday">Every Day</option>
-<option value="2-3 Days">2-3 Days</option>
-<option value="5-7 Days">5-7 Days</option>
-<option value="7-10 Days">7-10 Days</option>
-<option value="7-14 Days">7-14 Days</option>
-<option value="14-21 Days">14-21 Days</option>
-<option value="21-30 Days">21-30 Days</option>
+  <option value="1">Every Day</option>
+  <option value="3">2-3 Days</option>
+  <option value="7">5-7 Days</option>
+  <option value="10">7-10 Days</option>
+  <option value="14">7-14 Days</option>
+  <option value="21">14-21 Days</option>
+  <option value="30">21-30 Days</option>
 </select>
 
 

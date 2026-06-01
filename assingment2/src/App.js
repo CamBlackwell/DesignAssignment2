@@ -19,7 +19,7 @@ function App() {
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
-    <Dashboard totalPlants = {plants.length} />
+    <Dashboard PlantsData = {plants} />
 
       {showForm && (
         <AddPlantForm
