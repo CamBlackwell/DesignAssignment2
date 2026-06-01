@@ -4,6 +4,7 @@ import Header from './components/Header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
 import AddPlantForm from './components/AddPlantForm';
+import Dashboard from './components/Dashboard';
 
 function App() {
   
@@ -18,13 +19,15 @@ function App() {
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
+    <Dashboard />
+
       {showForm && (
         <AddPlantForm
           onAddPlant={addPlant}
           onClose={() => setShowForm(false)}
         />
       )}
-      
+
     <CardContainer>
      {plants.map((plant, index) => (
   <PlantCard
