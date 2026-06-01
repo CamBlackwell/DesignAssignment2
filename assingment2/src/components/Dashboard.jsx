@@ -1,11 +1,9 @@
-function Dashboard({onOpenForm}) {
+function Dashboard({}) {
   return (
     <div className="header-box">
         <h1>WATER PLANT</h1>
 
-        <button className="Add-plant" onClick={() =>
-          onOpenForm({})
-        }
+        <button className="Add-plant"
  >Add Plant ⊕ </button>
 
   
