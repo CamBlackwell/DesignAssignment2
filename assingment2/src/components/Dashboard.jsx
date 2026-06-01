@@ -1,12 +1,10 @@
-function Dashboard({}) {
+function Dashboard({totalPlants}) {
   return (
-    <div className="header-box">
-        <h1>WATER PLANT</h1>
+    <div className="dashboard-container">
+        <h2>Dashboard</h2>
+        <h3>Total Number of Plants: {totalPlants} </h3>
 
-        <button className="Add-plant"
- >Add Plant ⊕ </button>
 
-  
     </div>
   );
 }
