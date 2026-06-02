@@ -5,10 +5,11 @@ import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
 import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
+import TimeButton from './components/TimeButtonForReal';
 
 function App() {
   
-  let time = 0;
+  let time = -1;
   const [plants, setPlants]= useState([]);
   const [showForm, setShowForm] = useState(false);
 
@@ -16,22 +17,13 @@ function App() {
     setPlants([...plants, newPlant]);
   }
 
-  function passTime(plants){
-    time = time + 1
-    //if (plants.ur && time == 2){
-     // console.alert
-    //}
-  }
-
   return (
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
-    <Dashboard PlantsData = {plants} />
+    <TimeButton PlantWaterData={plants} />
 
-      <button onClick={passTime}>
-        <p>Time Pass (+1 day)</p>
-      </button>
+    <Dashboard PlantsData = {plants} />
 
       {showForm && (
         <AddPlantForm

@@ -6,6 +6,7 @@ const [formData, setFormData] = useState({
     name: "",
     species: "",
     urgency: "",
+    needsWater: false
 });
 
 function handleChange(e) {
