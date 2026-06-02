@@ -12,7 +12,7 @@ function PlantCard({ name, species, urgency }) {
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
         <div className="plant-card-footer">
           <p>water every {urgency}</p>
-          <button>water plant</button>
+          <button className="plant-card-water-button">water plant</button>
         </div>
       </div>
 
