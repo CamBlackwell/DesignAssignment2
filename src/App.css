@@ -1,4 +1,7 @@
 
+:root {
+  --cardFontColour: white;
+}
 
 
 /*css for the submit form*/ 
@@ -18,7 +21,9 @@
   aspect-ratio: 5 / 3;
   object-fit: cover;
   border-radius: 6%;
-  margin: 5cqi 0;
+  margin-top: 4cqi;
+  margin-bottom: 1cqi;
+
 }
 
 .plant-card-header {
@@ -26,31 +31,35 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-left: 6cqi;
+  padding-left: 5cqi;
   padding-right: 6cqi;
   margin-bottom: 1cqi;
 }
 
 .plant-card-title {
+  color: var(--cardFontColour);
   font-size: 11cqi;
   display: flex;
   flex-direction: column;
-  margin-bottom: 6cqi;
-  margin-top: 0.5cqi;
+  margin-bottom: 0cqi;
+  margin-top: 1.5cqi;
 }
 
 .plant-card-species-bio {
+  color: var(--cardFontColour);
   font-size: 3.5cqi;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  padding-left: 8cqi;
-  margin-bottom: 0.5cqi;
-  margin-top: 0.5cqi;
+  padding-left: 3cqi;
+  margin-bottom: 0cqi;
+  margin-top: 0cqi;
 }
 
 .plant-card-footer {
+  color: var(--cardFontColour);
+  font-size: 5cqi;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +70,7 @@
 
 .PlantCard {
   container-type: inline-size;
-  background-color: white;
+  background-color: green;
   width: clamp(250px, 30vw, 350px);
   aspect-ratio: 1 / 1;
   text-align: center;
@@ -72,13 +81,51 @@
 }
 
 .plant-card-settings-button {
-  font-size: 3cqi;
-  padding: 1.5cqi 3cqi;
+  color: var(--cardFontColour);
+  border: none;
+  background: none;
+  cursor: pointer;
+  align-items: center;
+  font-size: 16cqi;
 }
 
 .plant-card-water-button {
-  font-size: 3cqi;
-  padding: 1.5cqi 3cqi;
+  font-size: 6cqi;
+  height: 22cqi;
+
+  border-radius: 22%;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.plant-card-water-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.plant-card-water-button:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.plant-card-settings-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.plant-card-settings-button:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
 }
 
 .card-container {
