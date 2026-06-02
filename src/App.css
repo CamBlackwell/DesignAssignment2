@@ -14,32 +14,63 @@
 }
 /* css for the plant cards */
 .plant-image {
-  width: 100px;
-  height: auto;
+   height: 30%;
+   width: 60%;
+  /* max-width: 150px; */
+
 }
 
 .plant-card-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 9vh;
+}
+
+.plant-card-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.plant-card-species-bio {
+  font-size: 0.4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  height: 0vh;
 }
 
 .plant-card-footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: space-between;
 }
 
 
 .PlantCard {
   background-color: white;
-  width: 300px;
-  height: 300px;
+  width: clamp(250px, 30vw, 350px);
+  aspect-ratio: 1 / 1;
   text-align: center;
   border-radius: 2%;
   margin: 20px;
+  padding-top: 1em;
+}
+
+.plant-card-settings-button {
+}
+
+.plant-card-water-button {
+  height: 9vh;
+
 }
 
 .card-container {
