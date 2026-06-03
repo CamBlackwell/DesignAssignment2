@@ -12,6 +12,10 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
 
+  function waterPlant(id) {
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
+  }
+
   function addPlant(newPlant) {
     setPlants([...plants, { ...newPlant, id: Date.now(), lastWatered: currentDay }]);
   }
@@ -47,6 +51,7 @@ function App() {
             urgency={plant.urgency}
             lastWatered={plant.lastWatered}
             currentDay={currentDay}
+            onWater={waterPlant}
           />
         ))}
       </CardContainer>

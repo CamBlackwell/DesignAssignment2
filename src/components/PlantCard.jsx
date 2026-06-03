@@ -4,7 +4,7 @@ function getUrgencyColour(daysUntilWater) {
   return '#478978';
 }
 
-function PlantCard({ id, name, species, urgency, lastWatered, currentDay }) {
+function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater }) {
   const daysUntilWater = urgency + lastWatered - currentDay;
   return (
     <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(daysUntilWater) }}>
@@ -19,11 +19,11 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay }) {
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
         <div className="plant-card-footer">
           <h3>Water in: {daysUntilWater} Days</h3>
-          <button className="plant-card-water-button">WATER</button>
+          <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER</button>
         </div>
       </div>
 
-    </div>
+    </div >
   );
 }
 
