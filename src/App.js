@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
@@ -11,9 +11,15 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
+  const [recentWateredAlert, setRecentWateredAlert] = useState(null);
 
   function waterPlant(id) {
+    const plant = plants.find(p => p.id === id);
+    if (!plant) return;
+    const mostRecentlyWatered = plant.lastWatered;
+
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
+    setRecentWateredAlert({ plantId: id, plantName: plant.name, mostRecentlyWatered });
   }
 
   function addPlant(newPlant) {
@@ -55,6 +61,13 @@ function App() {
           />
         ))}
       </CardContainer>
+
+      {recentWateredAlert && (
+        <div className="alert-popup">
+          <p>You watered {recentWateredAlert.plantName}!</p>
+          <button onClick={() => setRecentWateredAlert(null)}>OK</button>
+        </div>
+      )}
 
     </div>
 

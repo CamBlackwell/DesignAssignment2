@@ -209,5 +209,18 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
+}
+
+.alert-popup {
+  position: fixed;
+  bottom: 2cqi;
+  right: 2cqi;
+  background: white;
+  border: 2px solid black;
+  border-radius: 1.5cqi;
+  padding: 1.5cqi 2cqi;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
