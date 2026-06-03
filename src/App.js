@@ -17,9 +17,13 @@ function App() {
     const plant = plants.find(p => p.id === id);
     if (!plant) return;
     const mostRecentlyWatered = plant.lastWatered;
-
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
     setRecentWateredAlert({ plantId: id, plantName: plant.name, mostRecentlyWatered });
+  }
+
+  function undoWaterPlant(id, mostRecentlyWatered) {
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: mostRecentlyWatered } : p));
+    setRecentWateredAlert(null);
   }
 
   function addPlant(newPlant) {
@@ -64,12 +68,17 @@ function App() {
 
       {recentWateredAlert && (
         <div className="alert-popup">
+          <button className="close-popup"> X</button>
           <p>You watered {recentWateredAlert.plantName}!</p>
-          <button onClick={() => setRecentWateredAlert(null)}>OK</button>
+          <div className="alert-undo-ok-section">
+            <button className="alert-undo-button" onClick={() => undoWaterPlant(recentWateredAlert.plantId, recentWateredAlert.mostRecentlyWatered)}>Undo</button>
+            <button className="alert-ok-button" onClick={() => setRecentWateredAlert(null)}>OK</button>
+          </div>
         </div>
-      )}
+      )
+      }
 
-    </div>
+    </div >
 
   );
 }
