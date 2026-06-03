@@ -70,7 +70,7 @@
 
 .PlantCard {
   container-type: inline-size;
-  background-color: green;
+  /* background-color: green; */
   width: clamp(250px, 30vw, 350px);
   aspect-ratio: 1 / 1;
   text-align: center;
@@ -87,6 +87,7 @@
   cursor: pointer;
   align-items: center;
   font-size: 16cqi;
+  border-radius: 22%;
 }
 
 .plant-card-water-button {

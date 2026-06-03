@@ -1,6 +1,12 @@
+function getUrgencyColour(urgency) {
+  if (urgency <= 1) return '#8B0000';
+  if (urgency <= 3) return '#FCA311';
+  return '#478978';
+}
+
 function PlantCard({ name, species, urgency }) {
   return (
-    <div className="PlantCard">
+    <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(urgency) }}>
       <div>
         <div className="plant-card-header">
           <h1 className="plant-card-title">{name}
