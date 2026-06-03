@@ -1,5 +1,5 @@
 import './App.css';
-import  {useState} from 'react';
+import { useState } from 'react';
 import Header from './components/header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
@@ -7,27 +7,28 @@ import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
 
 function App() {
-  
-  let time = 0;
-  const [plants, setPlants]= useState([]);
-  const [showForm, setShowForm] = useState(false);
 
-  function addPlant(newPlant) {
-    setPlants([...plants, newPlant]);
+  const [plants, setPlants] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [currentDay, setCurrentDay] = useState(0);
+
+  function waterPlant(id) {
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
   }
 
-  function passTime(plants){
-    time = time + 1
-    //if (plants.ur && time == 2){
-     // console.alert
-    //}
+  function addPlant(newPlant) {
+    setPlants([...plants, { ...newPlant, id: Date.now(), lastWatered: currentDay }]);
+  }
+
+  function passTime(plants) {
+    setCurrentDay(currentDate => currentDate + 1);
   }
 
   return (
-   <div className='App'> 
-    <Header onOpenForm={() => setShowForm(true)} />
+    <div className='App'>
+      <Header onOpenForm={() => setShowForm(true)} />
 
-    <Dashboard PlantsData = {plants} />
+      <Dashboard PlantsData={plants} />
 
       <button onClick={passTime}>
         <p>Time Pass (+1 day)</p>
@@ -40,19 +41,23 @@ function App() {
         />
       )}
 
-    <CardContainer>
-     {plants.map((plant, index) => (
-  <PlantCard
-    key={index}
-    name={plant.name}
-    species={plant.species}
-    urgency={plant.urgency}
-  />
-))}
-    </CardContainer>
+      <CardContainer>
+        {plants.map((plant, index) => (
+          <PlantCard
+            key={index}
+            id={plant.id}
+            name={plant.name}
+            species={plant.species}
+            urgency={plant.urgency}
+            lastWatered={plant.lastWatered}
+            currentDay={currentDay}
+            onWater={waterPlant}
+          />
+        ))}
+      </CardContainer>
 
-   </div>
-      
+    </div>
+
   );
 }
 
