@@ -9,7 +9,8 @@ import TimeButton from './components/TimeButtonForReal';
 
 function App() {
   
-  let time = -1;
+  let time = 0;
+  //console.warn("hello atart")
   const [plants, setPlants]= useState([]);
   const [showForm, setShowForm] = useState(false);
 
@@ -17,13 +18,17 @@ function App() {
     setPlants([...plants, newPlant]);
   }
 
+  //let test = Dashboard(plants,time);
+
   return (
    <div className='App'> 
     <Header onOpenForm={() => setShowForm(true)} />
 
-    <TimeButton PlantWaterData={plants} />
+    <TimeButton PlantWaterData={plants} time={time} />
 
-    <Dashboard PlantsData = {plants} />
+   <Dashboard 
+      PlantsData = {plants}  dashTime={time}  
+    />
 
       {showForm && (
         <AddPlantForm

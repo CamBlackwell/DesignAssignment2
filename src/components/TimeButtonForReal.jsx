@@ -1,5 +1,5 @@
-function TimeButton({PlantWaterData}) {
-    let time = 0; // -1 to account for initial loading, actual start value should be zero
+function TimeButton({PlantWaterData, time}) {
+   // let time = 0; // -1 to account for initial loading, actual start value should be zero
   
     function resetTime() {
         time = 0;
@@ -15,14 +15,14 @@ function TimeButton({PlantWaterData}) {
             time = time + 1
         }
         let len = PlantWaterData.length
-       // console.warn(len);
+        console.warn(time);
         while (control < len){
            // console.warn(control);
             if (time >= PlantWaterData[control].urgency) {
                 PlantWaterData[control].needsWater = true;
             }
             control = control + 1;
-            //console.warn(PlantWaterData[1].needsWater);
+            console.warn(PlantWaterData[0].needsWater);
            
         }
         //let water = PlantWaterData[control].watered;
