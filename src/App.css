@@ -90,6 +90,13 @@
   border-radius: 22%;
 }
 
+.alert-undo-ok-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
 .plant-card-water-button {
   font-size: 6cqi;
   height: 22cqi;
