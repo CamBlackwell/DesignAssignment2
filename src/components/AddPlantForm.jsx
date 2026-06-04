@@ -19,13 +19,9 @@ function AddPlantForm({ onAddPlant, onClose }) {
       [name]: name === "urgency" && value !== "" ? Number(value) : value
     });
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    setFormData({
-      ...formData,
-      [name]: name === "urgency" && value !== "" ? Number(value) : value
-    });
+    function handleChange(e) {
+      const { name, value } = e.target;
+    }
   }
 
   function handleSubmit(e) {
@@ -81,6 +77,5 @@ function AddPlantForm({ onAddPlant, onClose }) {
       </form>
     </div>
   );
-}
 }
 export default AddPlantForm;
