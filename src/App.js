@@ -5,10 +5,15 @@ import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
 import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
-import TimeButton from './components/TimeButton';
-
+//import TimeButton from './components/TimeButton';
+import TimeButton from './components/TimeButtonForReal';
 
 function App() {
+  
+  let time = 0;
+  //console.warn("hello atart")
+  //const [plants, setPlants]= useState([]);
+  //const [showForm, setShowForm] = useState(false);
 
   const [plants, setPlants] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -30,10 +35,11 @@ function App() {
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-      <Dashboard PlantsData={plants} />
+    <TimeButton PlantWaterData={plants} time={time} />
 
-
-    <Dashboard totalPlants = {plants.length} />
+   <Dashboard 
+      PlantsData = {plants}  dashTime={time}  
+    />
 
       {showForm && (
         <AddPlantForm
