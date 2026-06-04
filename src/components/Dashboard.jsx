@@ -45,7 +45,7 @@ function Dashboard({PlantsData,dashTime}) {
   return (
     <div className="dashboard-container">
         <h2>Dashboard</h2>
-        <h3>Total Number of Plants: {PlantsData.length} Plants due: {waterCount} Plants Overdue: {overdueCount} Plants fine: {fineCount}</h3>
+        <h3>Total Number of Plants: {PlantsData.length} Plants due: {waterCount} Plants Overdue: {overdueCount} Plants OK: {fineCount}</h3>
         <button onClick={() => loadDash()}>Load DAsh</button>
     </div>
   );
