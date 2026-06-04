@@ -1,21 +1,29 @@
-function PlantCard({name, species, urgency}) {
+function getUrgencyColour(daysUntilWater) {
+  if (daysUntilWater <= 1) return '#8B0000';
+  if (daysUntilWater <= 3) return '#FCA311';
+  return '#478978';
+}
+
+function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater }) {
+  const daysUntilWater = urgency + lastWatered - currentDay;
   return (
-    <div className="PlantCard">
-        <div>
-        <div className = "plant-card-header">
-        <h1>{name}</h1>
-        <button>settings </button>  
+    <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(daysUntilWater) }}>
+      <div>
+        <div className="plant-card-header">
+          <h1 className="plant-card-title">{name}
+            <p className="plant-card-species-bio">{species}</p>
+          </h1>
+          <button className="plant-card-settings-button">...</button>
         </div>
-        
-        <p>{species}</p>
+
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
-        <div className = "plant-card-footer">
-            <p>water every {urgency}</p>
-            <button>water plant</button>
+        <div className="plant-card-footer">
+          <h3>Water in: {daysUntilWater} Days</h3>
+          <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER</button>
         </div>
-        </div>
-    
-    </div>
+      </div>
+
+    </div >
   );
 }
 
