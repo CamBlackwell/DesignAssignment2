@@ -15,13 +15,62 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  align-items: row;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 40cqi;
+  height: 35cqi;
   padding: 24px;
   background-color: white;
   border-radius: 12px;
+ z-index: 2000;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
+.AddPlantForm-cancel {
+  right: 1cqi;
+  background-color: red;
+  color: white;
+  padding: 1cqi;
+  border-radius: 12px;
+  border: none;
+  position: fixed;
+  right: 1cqi;
+}
+
+.AddPlantForm-confirm {
+  background-color: green;
+  color: white;
+  position: fixed;
+  right: 1cqi;
+  bottom: 2cqi;
+  padding: 1cqi;
+  border-radius: 12px;
+  border: none;
+
+}
+.AddPlantForm-confirm:hover {
+  background: darkgreen;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.AddPlantForm-confirm:active {
+  background: darkslategrey; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.AddPlantForm-cancel:hover {
+  background: firebrick;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.AddPlantForm-cancel:active {
+  background: darkred; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
 
 .plant-image {
   width: 80%;

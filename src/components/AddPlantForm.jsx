@@ -33,9 +33,13 @@ function AddPlantForm({ onAddPlant, onClose }) {
 
   return (
     <div className="AddPlantForm">
+      <button className="AddPlantForm-cancel" type="button" onClick={onClose}>
+        Cancel
+      </button>
       <form onSubmit={handleSubmit}>
         <h2>Add Plant</h2>
 
+        <h4> Add name </h4>
         <input
           name="name"
           placeholder="Plant name"
@@ -43,6 +47,7 @@ function AddPlantForm({ onAddPlant, onClose }) {
           onChange={handleChange}
         />
 
+        <h4> Select Species </h4>
         <select name="species" value={formData.species}
           onChange={handleChange} required>
           <option value="">Select species</option>
@@ -56,6 +61,7 @@ function AddPlantForm({ onAddPlant, onClose }) {
         </select>
 
 
+        <h4> Select Watering Frequency </h4>
         <select
           name="urgency" value={formData.urgency} onChange={handleChange} required>
           <option value="">Watering Frequency</option>
@@ -69,11 +75,8 @@ function AddPlantForm({ onAddPlant, onClose }) {
         </select>
 
 
-        <button type="submit">Create Plant</button>
+        <button className="AddPlantForm-confirm" type="submit">Create Plant</button>
 
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
       </form>
     </div>
   );
