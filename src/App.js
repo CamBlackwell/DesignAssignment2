@@ -29,17 +29,18 @@ function App() {
   }
 
   function passTime(plants) {
-    setCurrentDay(currentDate => currentDate + 1);
+    setCurrentDay(currentDay => currentDay + 1);
+    console.warn(currentDay);
   }
 
   return (
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-    <TimeButton PlantWaterData={plants} time={time} />
+      <button onClick={() => passTime(plants)}>time</button>
 
    <Dashboard 
-      PlantsData = {plants}  dashTime={time}  
+      PlantsData = {plants}  dashTime={currentDay}  
     />
 
       {showForm && (
@@ -49,7 +50,7 @@ function App() {
         />
       )}
 
-      <WaterAllButton PlantsData = {plants}></WaterAllButton>
+      <WaterAllButton PlantsData = {plants} />
 
       <CardContainer>
         {plants.map((plant, index) => (

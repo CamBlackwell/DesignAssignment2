@@ -3,9 +3,9 @@ function TimeButton(){
 
     let plantCheck = null;
 
-    function passTime({newPlantCheck},time){
+    function passTime(time){
         //time = time + 1
-        plantCheck = newPlantCheck;
+        //plantCheck = newPlantCheck;
         console.warn(time);
         //test = plants.urgency
        // if (plantCheck != null){

@@ -1,16 +1,27 @@
-function WaterAllButton(PlantsData){
+function WaterAllButton({PlantsData}){
+    function getData(PlantsData) {
+        return (
+            PlantsData
+        )
+    }
+
+    let test = getData(PlantsData);
     let index = 0;
-    let test = PlantsData;
-    console.warn("Help")
+    //console.warn("aa",test);
+
+   
+    
 
     while (index < PlantsData.len) {
+      //  console.warn("Help")
         if (PlantsData[index].needsWater == true) {
             PlantsData[index].needsWater = false;
         }
     }
-
+    console.warn(test)
     return(
-        <button onClick={() => WaterAllButton(test)}>Test</button>
+        test = getData(PlantsData),
+        <button onClick={() => WaterAllButton({test})}>Test</button>
     )
 }
 
