@@ -9,7 +9,7 @@ import Dashboard from './components/Dashboard';
 import TimeButton from './components/TimeButtonForReal';
 
 function App() {
-  
+
   //console.warn("hello atart")
   //const [plants, setPlants]= useState([]);
   //const [showForm, setShowForm] = useState(false);
@@ -51,11 +51,11 @@ function App() {
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-    <TimeButton plants={plants} setPlants={setPlants} currentDay={currentDay} setCurrentDay={setCurrentDay} />
+      <TimeButton plants={plants} setPlants={setPlants} currentDay={currentDay} setCurrentDay={setCurrentDay} />
 
-   <Dashboard 
-       PlantsData = {plants}  dashTime={currentDay}  
-    />
+      <Dashboard
+        PlantsData={plants} dashTime={currentDay}
+      />
 
       {showForm && (
         <AddPlantForm
@@ -81,8 +81,8 @@ function App() {
 
       {recentWateredAlert && (
         <div className="alert-popup">
-          <button className="close-popup"> X</button>
-          <p>You watered {recentWateredAlert.plantName}!</p>
+          <button className="close-popup">Close x</button>
+          <p className='alert-text'>You watered {recentWateredAlert.plantName}!</p>
           <div className="alert-undo-ok-section">
             <button className="alert-undo-button" onClick={() => undoWaterPlant(recentWateredAlert.plantId, recentWateredAlert.mostRecentlyWatered)}>Undo</button>
             <button className="alert-ok-button" onClick={() => setRecentWateredAlert(null)}>OK</button>

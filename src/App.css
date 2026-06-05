@@ -219,16 +219,25 @@
   position: fixed;
   bottom: 2cqi;
   right: 2cqi;
-  background: white;
-  border-radius: 1.5cqi;
-  padding: 1.5cqi 2cqi;
+  height: 10cqi;
+  width: 12cqi;
+  background: navy;
+  border-radius: 1cqi;
+  padding: 0.5cqi 1cqi;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 
 .alert-inside-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-text {
+  color: white;
+  font-size: 1cqi;
+  text-align: center;
 }
 
 
@@ -242,14 +251,33 @@
 
 .alert-undo-button {
   background: red;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 0.3cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
 }
 
 .alert-ok-button {
   background: green;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 0.3cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
 }
 
 .close-popup {
-  color: red;
+  margin-left: 2.5cqi;
+  color: grey;
+  font-size: 1.5cqi;
+  border-radius: 0.5cqi;
+  background: none;
+  border: none;
 }
 
 
