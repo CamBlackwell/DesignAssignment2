@@ -7,10 +7,11 @@ import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
 //import TimeButton from './components/TimeButton';
 import TimeButton from './components/TimeButtonForReal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  
-  let time = 0;
+
   //console.warn("hello atart")
   //const [plants, setPlants]= useState([]);
   //const [showForm, setShowForm] = useState(false);
@@ -19,8 +20,32 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
 
+  const sortedPlants = [...plants].sort((a, b) => {
+    const aDaysUntilWater = a.urgency + a.lastWatered - currentDay;
+    const bDaysUntilWater = b.urgency + b.lastWatered - currentDay;
+    return aDaysUntilWater - bDaysUntilWater;
+  }
+  );
+
   function waterPlant(id) {
+    const plant = plants.find(p => p.id === id);
+    if (!plant) return;
+    const mostRecentlyWatered = plant.lastWatered;
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
+    toast(
+      ({ closeToast }) => (
+        <div>
+          <span>{plant.name} watered!</span>
+          <button className='alert-undo-button' onClick={() => { undoWaterPlant(id, mostRecentlyWatered); closeToast(); }}>UNDO</button>
+          <button className='alert-ok-button' onClick={closeToast}>OK</button>
+        </div>
+      ),
+      { autoClose: 5000 }
+    );
+  }
+
+  function undoWaterPlant(id, mostRecentlyWatered) {
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: mostRecentlyWatered } : p));
   }
 
   function addPlant(newPlant) {
@@ -35,11 +60,11 @@ function App() {
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-    <TimeButton PlantWaterData={plants} time={time} />
+      <TimeButton plants={plants} setPlants={setPlants} currentDay={currentDay} setCurrentDay={setCurrentDay} />
 
-   <Dashboard 
-      PlantsData = {plants}  dashTime={time}  
-    />
+      <Dashboard
+        PlantsData={plants} dashTime={currentDay}
+      />
 
       {showForm && (
         <AddPlantForm
@@ -49,9 +74,9 @@ function App() {
       )}
 
       <CardContainer>
-        {plants.map((plant, index) => (
+        {sortedPlants.map((plant, index) => (
           <PlantCard
-            key={index}
+            key={plant.id}
             id={plant.id}
             name={plant.name}
             species={plant.species}
@@ -63,7 +88,20 @@ function App() {
         ))}
       </CardContainer>
 
-    </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        pauseOnFocusLoss
+        rtl={false}
+        draggable={false}
+        pauseOnHover
+        theme="dark"
+      />
+
+    </div >
 
   );
 }

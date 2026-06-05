@@ -1,6 +1,6 @@
 import App from "../App";
 import TimeButton from "./TimeButtonForReal";
-function Dashboard({PlantsData,dashTime}) {
+function Dashboard({ PlantsData, dashTime }) {
 
   let index = 0;
 
@@ -15,14 +15,14 @@ function Dashboard({PlantsData,dashTime}) {
 
   //let test = App();
 
- // let dashTime = "aa" //test.getAppTime();
+  // let dashTime = "aa" //test.getAppTime();
 
   //dashTime = App.time;
 
   console.warn(dashTime);
 
   loadDash();
-  function loadDash(){
+  function loadDash() {
     while (index < PlantsData.length) {
       console.warn("urgency", PlantsData[index]);
       console.warn("time", dashTime);
@@ -41,12 +41,12 @@ function Dashboard({PlantsData,dashTime}) {
     }
   }
 
-   // console.warn(dashTime);
+  // console.warn(dashTime);
   return (
     <div className="dashboard-container">
-        <h2>Dashboard</h2>
-        <h3>Total Number of Plants: {PlantsData.length} Plants due: {waterCount} Plants Overdue: {overdueCount} Plants OK: {fineCount}</h3>
-        <button onClick={() => loadDash()}>Load DAsh</button>
+      {/* <h2>Dashboard</h2> */}
+      <h3>Total Number of Plants: {PlantsData.length} Plants due: {waterCount} Plants Overdue: {overdueCount} Plants OK: {fineCount}</h3>
+      {/* <button onClick={() => loadDash()}>Load DAsh</button> */}
     </div>
   );
 }

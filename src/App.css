@@ -3,19 +3,75 @@
   --cardFontColour: white;
 }
 
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
 
-/*css for the submit form*/ 
+
 .AddPlantForm {
   position: fixed;
   top: 50%;
   left: 50%;
+  align-items: row;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 40cqi;
+  height: 35cqi;
   padding: 24px;
   background-color: white;
   border-radius: 12px;
+ z-index: 2000;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 }
-/* css for the plant cards */
+
+.AddPlantForm-cancel {
+  right: 1cqi;
+  background-color: red;
+  color: white;
+  padding: 1cqi;
+  border-radius: 12px;
+  border: none;
+  position: fixed;
+  right: 1cqi;
+}
+
+.AddPlantForm-confirm {
+  background-color: green;
+  color: white;
+  position: fixed;
+  right: 1cqi;
+  bottom: 2cqi;
+  padding: 1cqi;
+  border-radius: 12px;
+  border: none;
+
+}
+.AddPlantForm-confirm:hover {
+  background: darkgreen;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.AddPlantForm-confirm:active {
+  background: darkslategrey; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.AddPlantForm-cancel:hover {
+  background: firebrick;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.AddPlantForm-cancel:active {
+  background: darkred; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
 .plant-image {
   width: 80%;
   aspect-ratio: 5 / 3;
@@ -71,12 +127,13 @@
 .PlantCard {
   container-type: inline-size;
   /* background-color: green; */
-  width: clamp(250px, 30vw, 350px);
+  /* width: clamp(250px, 30vw, 350px); */
+  width: clamp(200px, 24vw, 280px);
   aspect-ratio: 1 / 1;
   text-align: center;
   border-radius: 12%;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  /* overflow: hidden; */
   box-sizing: border-box;
 }
 
@@ -90,6 +147,8 @@
   border-radius: 22%;
 }
 
+
+
 .plant-card-water-button {
   font-size: 6cqi;
   height: 22cqi;
@@ -97,7 +156,6 @@
   border-radius: 22%;
   border: none;
   cursor: pointer;
-
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -143,7 +201,8 @@
   padding: 20px;
   box-sizing: border-box;
 }
-/* css for the header bar */
+
+
 .header-box {
   background-color: rgb(79, 95, 84);
   width: 100%;
@@ -193,6 +252,7 @@
   margin-left: auto;
   margin-right: 20px;
   font-size: 15px;
+  z-index: 1000;
 
 }
 
@@ -204,10 +264,124 @@
   font-style: italic;
 }
 
-/* main app css */ 
-.App {
-  min-height: 100vh;
+/* CHANGES POPUP CSS */
+
+.alert-popup {
+  position: fixed;
+  bottom: 2cqi;
+  right: 2cqi;
+  height: 10cqi;
+  width: 12cqi;
+  background: navy;
+  border-radius: 1cqi;
+  padding: 0.5cqi 1cqi;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.alert-inside-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-text {
+  color: white;
+  font-size: 1cqi;
+  text-align: center;
+}
+
+
+.alert-undo-ok-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+  justify-content: space-between;
+
+}
+
+.alert-undo-button {
+  background: red;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 0.3cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
+}
+
+.alert-ok-button {
+  background: green;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 0.3cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
+}
+
+.close-popup {
+  margin-left: 2.5cqi;
+  color: grey;
+  font-size: 1.5cqi;
+  border-radius: 0.5cqi;
+  background: none;
+  border: none;
+}
+
+
+/* DEMO TIME CHANGING CSS */
+
+.demo-time-changer {
+  position: fixed;
+  bottom: 4cqi;
+  left: 9cqi;
+  background: indigo;
+  padding: 1cqi 1.5cqi;
+  border-radius: 1.5cqi;
+  z-index: 1000;
+  scale: 2;
+}
+
+.demo-inside-section {
   display: flex;
   flex-direction: column;
 }
 
+.demo-time-button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+  justify-content: space-between;
+}
+
+.demo-time-button {
+  background: brown;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 0.5cqi;
+  border-radius: 1.5cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
+}
+
+.demo-time-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.demo-time-button:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.demo-text {
+  color: white;
+  font-size: 0.6cqi;
+  text-align: center;
+}

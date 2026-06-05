@@ -1,41 +1,40 @@
-function TimeButton({PlantWaterData, time}) {
-   // let time = 0; // -1 to account for initial loading, actual start value should be zero
-  
-    function resetTime() {
-        time = 0;
+function TimeButton({ plants, setPlants, currentDay, setCurrentDay }) {
 
-    }
+  function resetTime() {
+    setCurrentDay(0);
+    setPlants(prevPlants =>
+      prevPlants.map(plant => ({
+        ...plant,
+        needsWater: false
+      }))
+    );
+  }
 
+  function passTime() {
+    const newDay = currentDay + 1;
+    console.warn(newDay);
+    setCurrentDay(newDay);
 
-    function passTime() {
+    setPlants(prevPlants =>
+      prevPlants.map(plant => {
+        const needsWater = plant.needsWater || newDay >= plant.urgency;
+        console.warn(plant.name, needsWater);
+        return { ...plant, needsWater };
+      })
+    );
+  }
 
-        let control = 0;
-
-        if(PlantWaterData != null){
-            time = time + 1
-        }
-        let len = PlantWaterData.length
-        console.warn(time);
-        while (control < len){
-           // console.warn(control);
-            if (time >= PlantWaterData[control].urgency) {
-                PlantWaterData[control].needsWater = true;
-            }
-            control = control + 1;
-            console.warn(PlantWaterData[0].needsWater);
-           
-        }
-        //let water = PlantWaterData[control].watered;
-        //console.warn(water)
-    
-      }
-
-   return (
-    <div>
-           <button onClick={() => passTime()}>Time Pass (+1 day)</button>
-           <button onClick={() => resetTime()}>Reset Time</button>
-    </div>
-       )
+  return (
+    <div className="demo-time-changer">
+      <div className="demo-inside-section">
+        <h1 className="demo-text"> Demo Time Changer </h1>
+        <div className="demo-inside-button-group">
+          <button className="demo-time-button" onClick={passTime}>Time Pass (+1 day)</button>
+          <button className="demo-time-button" onClick={resetTime}>Reset Time</button>
+        </div >
+      </div >
+    </div >
+  );
 
 }
 
