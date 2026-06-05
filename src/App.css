@@ -3,8 +3,14 @@
   --cardFontColour: white;
 }
 
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
 
-/*css for the submit form*/ 
+
 .AddPlantForm {
   position: fixed;
   top: 50%;
@@ -15,7 +21,8 @@
   background-color: white;
   border-radius: 12px;
 }
-/* css for the plant cards */
+
+
 .plant-image {
   width: 80%;
   aspect-ratio: 5 / 3;
@@ -90,12 +97,7 @@
   border-radius: 22%;
 }
 
-.alert-undo-ok-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 
-}
 
 .plant-card-water-button {
   font-size: 6cqi;
@@ -104,7 +106,6 @@
   border-radius: 22%;
   border: none;
   cursor: pointer;
-
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -150,7 +151,8 @@
   padding: 20px;
   box-sizing: border-box;
 }
-/* css for the header bar */
+
+
 .header-box {
   background-color: rgb(79, 95, 84);
   width: 100%;
@@ -211,23 +213,96 @@
   font-style: italic;
 }
 
-/* main app css */ 
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  container-type: inline-size;
-}
+/* CHANGES POPUP CSS */
 
 .alert-popup {
   position: fixed;
   bottom: 2cqi;
   right: 2cqi;
   background: white;
-  border: 2px solid black;
   border-radius: 1.5cqi;
   padding: 1.5cqi 2cqi;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 
+.alert-inside-section {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.alert-undo-ok-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+  justify-content: space-between;
+
+}
+
+.alert-undo-button {
+  background: red;
+}
+
+.alert-ok-button {
+  background: green;
+}
+
+.close-popup {
+  color: red;
+}
+
+
+/* DEMO TIME CHANGING CSS */
+
+.demo-time-changer {
+  position: fixed;
+  bottom: 2cqi;
+  left: 2cqi;
+  background: indigo;
+  padding: 1cqi 1.5cqi;
+  border-radius: 1.5cqi;
+  box-shadow: 0 4px 12px rgba(0,0,0,2.2);
+  z-index: 1000;
+}
+
+.demo-inside-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-time-button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+  justify-content: space-between;
+}
+
+.demo-time-button {
+  background: brown;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 0.5cqi;
+  border-radius: 1.5cqi;
+  padding: 0.3cqi;
+  border: none;
+  margin: 0.1cqi;
+}
+
+.demo-time-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.demo-time-button:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.demo-text {
+  color: white;
+  font-size: 0.6cqi;
+  text-align: center;
+}

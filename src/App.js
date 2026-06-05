@@ -10,7 +10,6 @@ import TimeButton from './components/TimeButtonForReal';
 
 function App() {
   
-  let time = 0;
   //console.warn("hello atart")
   //const [plants, setPlants]= useState([]);
   //const [showForm, setShowForm] = useState(false);
@@ -52,10 +51,10 @@ function App() {
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-    <TimeButton PlantWaterData={plants} time={time} />
+    <TimeButton plants={plants} setPlants={setPlants} currentDay={currentDay} setCurrentDay={setCurrentDay} />
 
    <Dashboard 
-      PlantsData = {plants}  dashTime={time}  
+       PlantsData = {plants}  dashTime={currentDay}  
     />
 
       {showForm && (
