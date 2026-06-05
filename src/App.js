@@ -12,6 +12,7 @@ import WaterAllButton from './components/WaterAll';
 function App() {
   
   let time = 0;
+  let test = 0;
   //console.warn("hello atart")
   //const [plants, setPlants]= useState([]);
   //const [showForm, setShowForm] = useState(false);
@@ -30,14 +31,28 @@ function App() {
 
   function passTime(plants) {
     setCurrentDay(currentDay => currentDay + 1);
-    console.warn(currentDay);
+    for (let item = 0; item < plants.length; item++) {
+      if (currentDay > plants[item].urgency || currentDay == plants[item].urgency) {
+        plants[item].needsWater = true;
+      }
+    }
+
+  }
+
+  function waterAllPlants(){
+    //let item = 0;
+   // let item2 = 0;
+    for(let item = 0; item < plants.length; item++){
+      waterPlant(plants[item].id)
+      //item = item + 1;        
+    }
   }
 
   return (
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
-      <button onClick={() => passTime(plants)}>time</button>
+      
 
    <Dashboard 
       PlantsData = {plants}  dashTime={currentDay}  
@@ -50,7 +65,9 @@ function App() {
         />
       )}
 
-      <WaterAllButton PlantsData = {plants} />
+
+      <button onClick={() => passTime(plants)}>time</button>
+      <WaterAllButton onWater={waterAllPlants} />
 
       <CardContainer>
         {plants.map((plant, index) => (
