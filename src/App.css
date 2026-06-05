@@ -27,6 +27,7 @@
 }
 
 .AddPlantForm-cancel {
+  cursor: pointer;
   right: 1cqi;
   background-color: red;
   color: white;
@@ -38,6 +39,7 @@
 }
 
 .AddPlantForm-confirm {
+  cursor: pointer;
   background-color: green;
   color: white;
   position: fixed;
@@ -46,8 +48,8 @@
   padding: 1cqi;
   border-radius: 12px;
   border: none;
-
 }
+
 .AddPlantForm-confirm:hover {
   background: darkgreen;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
@@ -137,14 +139,47 @@
   box-sizing: border-box;
 }
 
-.plant-card-settings-button {
+.plant-card-top-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.edit-icon {
+  font-size: 10cqi;
+}
+.plant-card-edit-button {
   color: var(--cardFontColour);
   border: none;
   background: none;
   cursor: pointer;
-  align-items: center;
-  font-size: 16cqi;
+  padding:0px;
+  margin-left: 2cqi;
+  font-size: 5cqi;
   border-radius: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-icon {
+  font-size: 10cqi;
+}
+
+.plant-card-log-button {
+  color: var(--cardFontColour);
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding:0px;
+  font-size: 5cqi;
+  margin-right: 2cqi;
+  border-radius: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -175,13 +210,25 @@
   transform: scale(0.97);
 }
 
-.plant-card-settings-button:hover {
+.plant-card-edit-button:hover {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   transform: scale(1.05);
 }
 
-.plant-card-settings-button:active {
+.plant-card-edit-button:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
+
+.plant-card-log-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.plant-card-log-button:active {
   background: rgba(255, 255, 255, 0.45); 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
   transform: scale(0.97);
@@ -244,6 +291,7 @@
 
 
 .Add-plant {
+  cursor: pointer; 
   background-color: rgb(119, 135, 124);
   width: 100px;
   height: 35px;
@@ -301,6 +349,7 @@
 }
 
 .alert-undo-button {
+  cursor: pointer;
   background: red;
   color: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -312,6 +361,7 @@
 }
 
 .alert-ok-button {
+  cursor: pointer;
   background: green;
   color: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -358,6 +408,7 @@
 }
 
 .demo-time-button {
+  cursor: pointer;
   background: brown;
   color: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);

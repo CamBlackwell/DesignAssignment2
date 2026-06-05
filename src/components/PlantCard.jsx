@@ -1,3 +1,6 @@
+import { FiEdit } from "react-icons/fi";
+import { GoBook } from "react-icons/go";
+
 function getUrgencyColour(daysUntilWater) {
   if (daysUntilWater <= 1) return '#8B0000';
   if (daysUntilWater <= 3) return '#FCA311';
@@ -13,7 +16,10 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
           <h1 className="plant-card-title">{name}
             <p className="plant-card-species-bio">{species}</p>
           </h1>
-          <button className="plant-card-settings-button">...</button>
+          <div className="plant-card-top-buttons">
+            <button className="plant-card-log-button"> <GoBook className="book-icon" />Log</button>
+            <button className="plant-card-edit-button"><FiEdit className="edit-icon" />Edit</button>
+          </div>
         </div>
 
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
