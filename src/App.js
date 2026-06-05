@@ -7,6 +7,8 @@ import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
 //import TimeButton from './components/TimeButton';
 import TimeButton from './components/TimeButtonForReal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -17,7 +19,6 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
-  const [recentWateredAlert, setRecentWateredAlert] = useState(null);
 
   const sortedPlants = [...plants].sort((a, b) => {
     const aDaysUntilWater = a.urgency + a.lastWatered - currentDay;
@@ -31,12 +32,20 @@ function App() {
     if (!plant) return;
     const mostRecentlyWatered = plant.lastWatered;
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay } : p));
-    setRecentWateredAlert({ plantId: id, plantName: plant.name, mostRecentlyWatered });
+    toast(
+      ({ closeToast }) => (
+        <div>
+          <span>{plant.name} has been watered!</span>
+          <button className='alert-undo-button' onClick={() => { undoWaterPlant(id, mostRecentlyWatered); closeToast(); }}>UNDO</button>
+          <button className='alert-ok-button' onClick={closeToast}>OK</button>
+        </div>
+      ),
+      { autoClose: 5000 }
+    );
   }
 
   function undoWaterPlant(id, mostRecentlyWatered) {
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: mostRecentlyWatered } : p));
-    setRecentWateredAlert(null);
   }
 
   function addPlant(newPlant) {
@@ -79,17 +88,18 @@ function App() {
         ))}
       </CardContainer>
 
-      {recentWateredAlert && (
-        <div className="alert-popup">
-          <button className="close-popup">Close x</button>
-          <p className='alert-text'>You watered {recentWateredAlert.plantName}!</p>
-          <div className="alert-undo-ok-section">
-            <button className="alert-undo-button" onClick={() => undoWaterPlant(recentWateredAlert.plantId, recentWateredAlert.mostRecentlyWatered)}>Undo</button>
-            <button className="alert-ok-button" onClick={() => setRecentWateredAlert(null)}>OK</button>
-          </div>
-        </div>
-      )
-      }
+      <ToastContainer
+        position="bottom-right"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        pauseOnFocusLoss
+        rtl={false}
+        draggable={false}
+        pauseOnHover
+        theme="dark"
+      />
 
     </div >
 
