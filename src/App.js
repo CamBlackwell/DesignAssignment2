@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from './components/header';
 import PlantCard from './components/PlantCard';
 import CardContainer from './components/CardContainer';
@@ -12,6 +12,13 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
   const [recentWateredAlert, setRecentWateredAlert] = useState(null);
+
+  const sortedPlants = [...plants].sort((a, b) => {
+    const aDaysUntilWater = a.urgency + a.lastWatered - currentDay;
+    const bDaysUntilWater = b.urgency + b.lastWatered - currentDay;
+    return aDaysUntilWater - bDaysUntilWater;
+  }
+  );
 
   function waterPlant(id) {
     const plant = plants.find(p => p.id === id);
@@ -52,9 +59,9 @@ function App() {
       )}
 
       <CardContainer>
-        {plants.map((plant, index) => (
+        {sortedPlants.map((plant, index) => (
           <PlantCard
-            key={index}
+            key={plant.id}
             id={plant.id}
             name={plant.name}
             species={plant.species}
