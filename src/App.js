@@ -35,7 +35,7 @@ function App() {
     toast(
       ({ closeToast }) => (
         <div>
-          <span>{plant.name} has been watered!</span>
+          <span>{plant.name} watered!</span>
           <button className='alert-undo-button' onClick={() => { undoWaterPlant(id, mostRecentlyWatered); closeToast(); }}>UNDO</button>
           <button className='alert-ok-button' onClick={closeToast}>OK</button>
         </div>

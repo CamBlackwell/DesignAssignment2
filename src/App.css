@@ -78,12 +78,13 @@
 .PlantCard {
   container-type: inline-size;
   /* background-color: green; */
-  width: clamp(250px, 30vw, 350px);
+  /* width: clamp(250px, 30vw, 350px); */
+  width: clamp(200px, 24vw, 280px);
   aspect-ratio: 1 / 1;
   text-align: center;
   border-radius: 12%;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  /* overflow: hidden; */
   box-sizing: border-box;
 }
 
@@ -202,6 +203,7 @@
   margin-left: auto;
   margin-right: 20px;
   font-size: 15px;
+  z-index: 1000;
 
 }
 
@@ -285,13 +287,13 @@
 
 .demo-time-changer {
   position: fixed;
-  bottom: 2cqi;
-  left: 2cqi;
+  bottom: 4cqi;
+  left: 9cqi;
   background: indigo;
   padding: 1cqi 1.5cqi;
   border-radius: 1.5cqi;
-  box-shadow: 0 4px 12px rgba(0,0,0,2.2);
   z-index: 1000;
+  scale: 2;
 }
 
 .demo-inside-section {
