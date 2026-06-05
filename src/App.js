@@ -7,6 +7,7 @@ import AddPlantForm from './components/AddPlantForm';
 import Dashboard from './components/Dashboard';
 //import TimeButton from './components/TimeButton';
 import TimeButton from './components/TimeButtonForReal';
+import WaterAllButton from './components/WaterAll';
 
 function App() {
   
@@ -47,6 +48,8 @@ function App() {
           onClose={() => setShowForm(false)}
         />
       )}
+
+      <WaterAllButton PlantsData = {plants}></WaterAllButton>
 
       <CardContainer>
         {plants.map((plant, index) => (
