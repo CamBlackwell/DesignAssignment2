@@ -26,7 +26,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
 
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
         <div className="plant-card-footer">
-          <h3>Water in: {daysUntilWater} Days</h3>
+          <h3>{daysUntilWater} Days Until Water</h3>
           <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER <IoIosWater /></button>
         </div>
       </div>
