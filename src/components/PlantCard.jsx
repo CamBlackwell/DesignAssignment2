@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import { FiEdit } from "react-icons/fi";
 import { GoBook } from "react-icons/go";
 import { IoIosWater } from "react-icons/io";
@@ -9,6 +10,20 @@ function getUrgencyColour(daysUntilWater) {
 }
 
 function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater }) {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+
   const daysUntilWater = urgency + lastWatered - currentDay;
   return (
     <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(daysUntilWater) }}>
@@ -20,7 +35,23 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
           </h1>
           <div className="plant-card-top-buttons">
             <button className="plant-card-log-button"> <GoBook className="book-icon" />Log</button>
-            <button className="plant-card-edit-button"><FiEdit className="edit-icon" />Edit</button>
+
+            <div className="plant-card-dropdown-wrapper" ref={dropdownRef}>
+              <button
+                className="plant-card-edit-button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                <FiEdit className="edit-icon" />Edit
+              </button>
+
+              {dropdownOpen && (
+                <div className="plant-card-dropdown-menu">
+                  <button className="edit-plant-info-dropdown ">Edit Plant Info</button>
+                  <button className="delete-plant-dropdown">Delete Plant</button>
+                </div>
+              )}
+            </div>
+
           </div>
         </div>
 

@@ -441,3 +441,58 @@
   font-size: 0.6cqi;
   text-align: center;
 }
+
+.plant-card-dropdown-wrapper {
+  position: relative;
+}
+
+.plant-card-dropdown-menu {
+  position: absolute;
+  /* top: 100%; */
+  z-index: 1000;
+  background: black;
+  border-radius: 8px;
+  min-width: 160px;
+}
+
+.edit-plant-info-dropdown {
+  color: white;
+  font-size: 5cqi;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+.edit-plant-info-dropdown:hover {
+  background: gray;
+}
+
+.edit-plant-info-dropdown:active {
+  background: dimgray;
+}
+
+.delete-plant-dropdown {
+  color: darkred;
+  font-size: 5cqi;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.delete-plant-dropdown:hover {
+  background: firebrick;
+  color: black;
+}
+
+.delete-plant-dropdown:active {
+  background: darkred;
+  color: black;
+}
+
