@@ -101,6 +101,15 @@
   flex-direction: column;
   margin-bottom: 0cqi;
   margin-top: 1.5cqi;
+  min-width: 0;
+}
+
+.plant-card-title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .plant-card-species-bio {

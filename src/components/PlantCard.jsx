@@ -13,7 +13,8 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
     <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(daysUntilWater) }}>
       <div>
         <div className="plant-card-header">
-          <h1 className="plant-card-title">{name}
+          <h1 className="plant-card-title">
+            <span className="plant-card-title-text">{name}</span>
             <p className="plant-card-species-bio">{species}</p>
           </h1>
           <div className="plant-card-top-buttons">
