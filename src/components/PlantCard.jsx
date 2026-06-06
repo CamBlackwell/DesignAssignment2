@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { FiEdit } from "react-icons/fi";
 import { GoBook } from "react-icons/go";
-import { IoIosWater } from "react-icons/io";
+import { IoIosWater, IoMdTrash } from "react-icons/io";
+import { PiPottedPlantFill } from "react-icons/pi";
 
 function getUrgencyColour(daysUntilWater) {
   if (daysUntilWater < 1) return '#8B0000';
@@ -46,8 +47,8 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
 
               {dropdownOpen && (
                 <div className="plant-card-dropdown-menu">
-                  <button className="edit-plant-info-dropdown ">Edit Plant Info</button>
-                  <button className="delete-plant-dropdown">Delete Plant</button>
+                  <button className="edit-plant-info-dropdown "><PiPottedPlantFill /> Edit Plant Info</button>
+                  <button className="delete-plant-dropdown"><IoMdTrash /> Delete Plant</button>
                 </div>
               )}
             </div>

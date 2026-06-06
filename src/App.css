@@ -475,7 +475,7 @@
 }
 
 .delete-plant-dropdown {
-  color: darkred;
+  color: red;
   font-size: 5cqi;
   padding: 8px 14px;
   background: none;
@@ -488,11 +488,11 @@
 
 .delete-plant-dropdown:hover {
   background: firebrick;
-  color: black;
+  color: white;
 }
 
 .delete-plant-dropdown:active {
   background: darkred;
-  color: black;
+  color: white;
 }
 
