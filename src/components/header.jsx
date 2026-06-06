@@ -9,12 +9,12 @@ function Header({ onOpenForm }) {
     <div className="header-box">
       <h1>WATER PLANT</h1>
 
-      <button> Info <IoIosInformationCircleOutline /></button>
-      <button> Water Multiple <FaList /></button>
-      <button> Edit Plants <PiPlant /></button>
-      <button> Settings <CiSettings /></button>
+      <button className="header-buttons"> Info <IoIosInformationCircleOutline /></button>
+      <button className="header-buttons"> Settings <CiSettings /></button>
+      <button className="header-buttons"> Water Multiple Plants <FaList /></button>
+      <button className="header-buttons"> Edit Plants <PiPlant /></button>
 
-      <button className="Add-plant" onClick={() =>
+      <button className="header-buttons" onClick={() =>
         onOpenForm({})
       }
       >Add Plant <CiCirclePlus /> </button>

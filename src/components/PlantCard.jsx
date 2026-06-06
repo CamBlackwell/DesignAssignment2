@@ -1,5 +1,6 @@
 import { FiEdit } from "react-icons/fi";
 import { GoBook } from "react-icons/go";
+import { IoIosWater } from "react-icons/io";
 
 function getUrgencyColour(daysUntilWater) {
   if (daysUntilWater <= 1) return '#8B0000';
@@ -26,7 +27,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
         <img className="plant-image" src="/plant.jpg" alt="Plant" />
         <div className="plant-card-footer">
           <h3>Water in: {daysUntilWater} Days</h3>
-          <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER</button>
+          <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER <IoIosWater /></button>
         </div>
       </div>
 
