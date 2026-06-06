@@ -40,7 +40,7 @@ function App() {
           <button className='alert-ok-button' onClick={closeToast}>OK</button>
         </div>
       ),
-      { autoClose: 5000 }
+      { autoClose: 8000 }
     );
   }
 
