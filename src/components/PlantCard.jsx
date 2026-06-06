@@ -3,8 +3,8 @@ import { GoBook } from "react-icons/go";
 import { IoIosWater } from "react-icons/io";
 
 function getUrgencyColour(daysUntilWater) {
-  if (daysUntilWater <= 1) return '#8B0000';
-  if (daysUntilWater <= 3) return '#FCA311';
+  if (daysUntilWater < 1) return '#8B0000';
+  if (daysUntilWater == 1) return '#FCA311';
   return '#478978';
 }
 
