@@ -24,20 +24,89 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+
+    <title>Water Plant</title>
+
+    <style>
+      .skeleton-app {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column; 
+        background: rgb(51, 70, 57);
+      }
+      
+      @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      .skeleton-banner {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+        background-color: rgb(79, 95, 84);
+        height: 10vh;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+        top: 0; 
+        background-image: linear-gradient(
+          90deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.15) 50%,
+          transparent 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+      .skeleton-grid {
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+        align-content: flex-start;
+        justify-content: flex-start;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .skeleton-card {
+        background: rgb(79, 95, 84);
+        container-type: inline-size;
+        width: clamp(200px, 24vw, 280px);
+        aspect-ratio: 1 / 1;
+        text-align: center;
+        border-radius: 12%;
+        background-image: linear-gradient(
+          90deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.15) 50%,
+          transparent 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+    </style>
+
+
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <div id="root">
+        <div class="skeleton-app">
+          <div class="skeleton-banner"></div>
+          <div class="skeleton-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+        </div>
+      </div>
   </body>
 </html>

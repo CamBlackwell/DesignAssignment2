@@ -35,9 +35,8 @@ function App() {
     toast(
       ({ closeToast }) => (
         <div>
-          <span>{plant.name} watered!</span>
           <button className='alert-undo-button' onClick={() => { undoWaterPlant(id, mostRecentlyWatered); closeToast(); }}>UNDO</button>
-          <button className='alert-ok-button' onClick={closeToast}>OK</button>
+          <span>{plant.name} watered!</span>
         </div>
       ),
       { autoClose: 8000 }

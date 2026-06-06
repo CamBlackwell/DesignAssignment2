@@ -101,6 +101,15 @@
   flex-direction: column;
   margin-bottom: 0cqi;
   margin-top: 1.5cqi;
+  min-width: 0;
+}
+
+.plant-card-title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .plant-card-species-bio {
@@ -251,19 +260,24 @@
 
 
 .header-box {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
   background-color: rgb(79, 95, 84);
-  width: 100%;
-  height: 10%;
+  /* width: 100%; */
+  /* height: 10%; */
   text-align: center;
   display: flex;
   flex-direction: row;
   align-items: center ;
-  justify-content: left;
-  border: 2px solid black;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  /* justify-content: left; */
+  /* border: 2px solid black; */
+  border: none;
 }
 
 .dashboard-container {
-  background-color: rgb(79, 95, 84);
+  background: rgb(51, 70, 57);
   width: 100%;
   height: 10%;
   text-align: center;
@@ -271,7 +285,7 @@
   flex-direction: column;
   align-items: center ;
   justify-content: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .dashboard-container h2 {
@@ -290,17 +304,8 @@
 
 
 
-.Add-plant {
+.header-buttons {
   cursor: pointer; 
-  background-color: rgb(119, 135, 124);
-  width: 100px;
-  height: 35px;
-  text-align: center;
-  border-radius: 15%;
-  margin-left: auto;
-  margin-right: 20px;
-  font-size: 15px;
-  z-index: 1000;
 
 }
 
@@ -436,3 +441,58 @@
   font-size: 0.6cqi;
   text-align: center;
 }
+
+.plant-card-dropdown-wrapper {
+  position: relative;
+}
+
+.plant-card-dropdown-menu {
+  position: absolute;
+  /* top: 100%; */
+  z-index: 1000;
+  background: black;
+  border-radius: 8px;
+  min-width: 160px;
+}
+
+.edit-plant-info-dropdown {
+  color: white;
+  font-size: 5cqi;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+.edit-plant-info-dropdown:hover {
+  background: gray;
+}
+
+.edit-plant-info-dropdown:active {
+  background: dimgray;
+}
+
+.delete-plant-dropdown {
+  color: red;
+  font-size: 5cqi;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.delete-plant-dropdown:hover {
+  background: firebrick;
+  color: white;
+}
+
+.delete-plant-dropdown:active {
+  background: darkred;
+  color: white;
+}
+
