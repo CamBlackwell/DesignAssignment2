@@ -302,13 +302,41 @@
   font-style: italic;
 }
 
-
-
-.header-buttons {
-  cursor: pointer; 
+.header-buttons-group {
+  display: flex;  
+  justify-content: space-between;
+  flex: 1;
+  padding-right: 1cqi;
 
 }
 
+.header-buttons {
+  color: white;
+  cursor: pointer; 
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  vertical-align: middle;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 1.5cqi;
+  padding: 1cqi 2.5cqi 1cqi 2.5cqi;
+  border: none;
+  display: flex;  
+  align-items: center;
+}
+
+
+.header-buttons:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.header-buttons:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
 
 .header-box h1 {
   color: white;
