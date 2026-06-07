@@ -11,9 +11,14 @@ function AddPlantForm({ onAddPlant, onClose }) {
     needsWater: false,
     careHistory: []
   });
+  const [errors, setErrors] = useState({ name: "" });
 
   function handleChange(e) {
     const { name, value } = e.target;
+
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
 
     setFormData({
       ...formData,
@@ -28,6 +33,12 @@ function AddPlantForm({ onAddPlant, onClose }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (formData.name.trim() === "") {
+      setErrors({ ...errors, name: "Plant name is required" });
+      return;
+    }
+
+
     onAddPlant(formData);
     onClose();
   }
@@ -41,39 +52,47 @@ function AddPlantForm({ onAddPlant, onClose }) {
         <h2>Add Plant</h2>
 
         <h4> Add name </h4>
-        <input
-          name="name"
-          placeholder="Plant name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+        <div>
+          The plant's name is <input
+            name="name"
+            placeholder="Plant name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          {errors.name && <p className="add-plant-error-message">{errors.name}</p>}
+
+        </div>
 
         <h4> Select Species </h4>
-        <select name="species" value={formData.species}
-          onChange={handleChange} required>
-          <option value="">Select species</option>
-          <option value="Pothos">Pothos</option>
-          <option value="Snake Plant">Snake Plant</option>
-          <option value="Fiddle Leaf Fig">Fiddle Leaf Fig</option>
-          <option value="Peace Lilly">Peacy Lilly</option>
-          <option value="Monstera deliciosa">Monstera deliciosa</option>
-          <option value="Succulent / cactus ">Succulent / cactus </option>
-          <option value="Basil">Basil</option>
-        </select>
+        <div>
+          The plant's species is <select name="species" value={formData.species}
+            onChange={handleChange} required>
+            <option value="">Select species</option>
+            <option value="Pothos">Pothos (7 - 30 days)</option>
+            <option value="Snake Plant">Snake Plant (7 - 14 days)</option>
+            <option value="Fiddle Leaf Fig">Fiddle Leaf Fig (7 - 10 days)</option>
+            <option value="Peace Lilly">Peacy Lilly (4 - 12 days)</option>
+            <option value="Monstera deliciosa">Monstera deliciosa (7 - 12 days)</option>
+            <option value="Succulent / cactus ">Succulent / cactus (10 - 14 days)</option>
+            <option value="Basil">Basil (2 - 4 days)</option>
+          </select>
+        </div>
 
 
         <h4> Select Watering Frequency </h4>
-        <select
+        <div> This plant needs to be watered every <select
           name="urgency" value={formData.urgency} onChange={handleChange} required>
-          <option value="">Watering Frequency</option>
-          <option value="1">Every Day</option>
-          <option value="3">2-3 Days</option>
-          <option value="7">5-7 Days</option>
-          <option value="10">7-10 Days</option>
-          <option value="14">7-14 Days</option>
-          <option value="21">14-21 Days</option>
-          <option value="30">21-30 Days</option>
+          <option value="">Select watering frequency</option>
+          {Array.from({ length: 100 }, (_, i) => {
+            const days = i + 1;
+            return (
+              <option key={days} value={days}>
+                {days} {days === 1 ? "Day" : "Days"}
+              </option>
+            );
+          })}
         </select>
+        </div>
 
 
         <button className="AddPlantForm-confirm" type="submit">Create Plant</button>

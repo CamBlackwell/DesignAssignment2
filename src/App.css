@@ -26,6 +26,7 @@
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
+
 .AddPlantForm-cancel {
   cursor: pointer;
   right: 1cqi;
@@ -280,13 +281,50 @@
   background: rgb(51, 70, 57);
   width: 100%;
   height: 10%;
+  margin-right: 9cqi;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center ;
   justify-content: center;
   /* border: 2px solid black; */
 }
+
+
+.dashboard-total {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+}
+
+.dashboard-due {
+  color: red;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+  border: 1cqi;
+}
+.dashboard-tomorrow{
+  color: DarkOrange;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+  border: 1cqi;
+}
+
+.dashboard-ok {
+  color: Limegreen;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+
+}
+
 
 .dashboard-container h2 {
   color: white;
@@ -295,20 +333,43 @@
   font-style: italic;
 }
 
-.dashboard-container h3 {
-  color: white;
-  margin: 5px;
-  font-family: Inter, sans-serif;
-  font-style: italic;
+
+
+.header-buttons-group {
+  display: flex;  
+  justify-content: space-between;
+  flex: 1;
+  padding-right: 1cqi;
+
 }
-
-
 
 .header-buttons {
+  color: white;
   cursor: pointer; 
-
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  vertical-align: middle;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.5cqi;
+  border-radius: 1.5cqi;
+  padding: 1cqi 2.5cqi 1cqi 2.5cqi;
+  border: none;
+  display: flex;  
+  align-items: center;
 }
 
+
+.header-buttons:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.header-buttons:active {
+  background: rgba(255, 255, 255, 0.45); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.97);
+}
 
 .header-box h1 {
   color: white;
@@ -494,6 +555,10 @@
 .delete-plant-dropdown:active {
   background: darkred;
   color: white;
+}
+
+.add-plant-error-message {
+  color: red;
 }
 
 .care-log-overlay {
