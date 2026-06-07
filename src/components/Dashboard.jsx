@@ -13,7 +13,7 @@ function Dashboard({ PlantsData, dashTime }) {
   ).length;
 
   const okCount = PlantsData.filter(
-    plant => plant.urgency + plant.lastWatered - dashTime > 0
+    plant => plant.urgency + plant.lastWatered - dashTime > 1
   ).length;
   //let test = App();
 
