@@ -39,7 +39,7 @@ function App() {
           <span>{plant.name} watered!</span>
         </div>
       ),
-      { autoClose: 5000 }
+      { autoClose: 8000 }
     );
   }
 
