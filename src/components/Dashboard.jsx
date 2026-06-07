@@ -48,7 +48,7 @@ function Dashboard({ PlantsData, dashTime }) {
     <div className="dashboard-container">
       {/* <h2>Dashboard</h2> */}
       <div className="dashboard-total"><h3>Total Number of Plants: {PlantsData.length}</h3></div>
-      <div className="dashboard-due"><h3> Plants due: {dueCount}</h3></div>
+      <div className="dashboard-due"><h3> Water Today: {dueCount}</h3></div>
       {/* <div className="dashboard-due"><h3>Plants Overdue: {overdueCount}</h3></div> */}
       <div className="dashboard-tomorrow"><h3>Water Tomorrow: {tomorrowCount}</h3></div>
       <div className="dashboard-ok"><h3>Plants OK: {okCount}</h3></div>
