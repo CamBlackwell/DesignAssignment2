@@ -9,7 +9,8 @@ function AddPlantForm({ onAddPlant, onClose }) {
     id: "",
     lastWatered: "",
     needsWater: false,
-    careHistory: []
+    careHistory: [],
+    photo: ""
   });
   const [errors, setErrors] = useState({ name: "" });
 
@@ -24,10 +25,16 @@ function AddPlantForm({ onAddPlant, onClose }) {
       ...formData,
       [name]: name === "urgency" && value !== "" ? Number(value) : value
     });
+  }
 
-    function handleChange(e) {
-      const { name, value } = e.target;
-    }
+  function handlePhotoChange(e) {
+    const photo = e.target.files[0];
+    if (!photo) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setFormData(prev => ({ ...prev, photo: event.target.result }));
+    };
+    reader.readAsDataURL(photo);
   }
 
   function handleSubmit(e) {
@@ -93,6 +100,12 @@ function AddPlantForm({ onAddPlant, onClose }) {
           })}
         </select>
         </div>
+
+        <h4>Plant Photo (Will have a default if none available)</h4>
+        <input type="file" accept="image/*" onChange={handlePhotoChange} />
+        {formData.photo && (
+          <img src={formData.photo} alt="Preview" style={{ width: 100, height: 100, objectFit: 'cover' }} />
+        )}
 
 
         <button className="AddPlantForm-confirm" type="submit">Create Plant</button>
