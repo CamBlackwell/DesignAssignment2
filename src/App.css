@@ -26,6 +26,7 @@
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
+
 .AddPlantForm-cancel {
   cursor: pointer;
   right: 1cqi;
@@ -554,6 +555,10 @@
 .delete-plant-dropdown:active {
   background: darkred;
   color: white;
+}
+
+.add-plant-error-message {
+  color: red;
 }
 
 .care-log-overlay {
