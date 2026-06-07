@@ -10,7 +10,7 @@ function getUrgencyColour(daysUntilWater) {
   return '#478978';
 }
 
-function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater, careHistory, onAddCareHistory }) {
+function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater, careHistory, onAddCareHistory, photo }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [logOpen, setLogOpen] = useState(false);
@@ -38,7 +38,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
           </h1>
           <div className="plant-card-top-buttons">
             <button className="plant-card-log-button" onClick={() => setLogOpen(true)}>
-            <GoBook className="book-icon" />Log
+              <GoBook className="book-icon" />Log
             </button>
 
             <div className="plant-card-dropdown-wrapper" ref={dropdownRef}>
@@ -56,7 +56,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
                 </div>
               )}
 
-                            {logOpen && (
+              {logOpen && (
                 <div className="care-log-overlay">
                   <div className="care-log-popup">
                     <h2> {name} care log</h2>
@@ -73,22 +73,22 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
                     )}
 
                     <input
-                        type="text"
-                        value={careNote}
-                        onChange={(e) => setCareNote(e.target.value)}
-                        placeholder="Describe care"
-                      />
+                      type="text"
+                      value={careNote}
+                      onChange={(e) => setCareNote(e.target.value)}
+                      placeholder="Describe care"
+                    />
 
-                      <button
-                    onClick={() => {
-                      if (careNote.trim() === "") return;
-                      onAddCareHistory(id, careNote + " 🌿");
-                      setCareNote("");
-                    }}
-                  >
-                    
-                        Add Note
-                      </button>
+                    <button
+                      onClick={() => {
+                        if (careNote.trim() === "") return;
+                        onAddCareHistory(id, careNote + " 🌿");
+                        setCareNote("");
+                      }}
+                    >
+
+                      Add Note
+                    </button>
 
                     <button onClick={() => setLogOpen(false)}>Close</button>
                   </div>
@@ -100,7 +100,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
           </div>
         </div>
 
-        <img className="plant-image" src="/plant.jpg" alt="Plant" />
+        <img className="plant-image" src={photo || "/plant.jpg"} alt="Plant" />
         <div className="plant-card-footer">
           <h3>{daysUntilWater} Days Until Water</h3>
           <button className="plant-card-water-button" onClick={() => onWater(id)}>WATER <IoIosWater /></button>

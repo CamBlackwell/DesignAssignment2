@@ -99,6 +99,7 @@ function App() {
             onWater={waterPlant}
             careHistory={plant.careHistory}
             onAddCareHistory={addCareHistory}
+            photo={plant.photo}
           />
         ))}
       </CardContainer>
