@@ -8,7 +8,8 @@ function AddPlantForm({ onAddPlant, onClose }) {
     urgency: "",
     id: "",
     lastWatered: "",
-    needsWater: false
+    needsWater: false,
+    careHistory: []
   });
 
   function handleChange(e) {
