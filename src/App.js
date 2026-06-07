@@ -31,7 +31,7 @@ function App() {
     const plant = plants.find(p => p.id === id);
     if (!plant) return;
     const mostRecentlyWatered = plant.lastWatered;
-    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay, careHistory: [...(p.careHistory || []), { day: currentDay, note: "Watered plant" }] } : p));
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay, careHistory: [...(p.careHistory || []), { day: currentDay, note: "Watered plant 💧" }] } : p));
     toast(
       ({ closeToast }) => (
         <div>

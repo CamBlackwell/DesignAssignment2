@@ -80,12 +80,13 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
                       />
 
                       <button
-                        onClick={() => {
-                          if (careNote.trim() === "") return;
-                          onAddCareHistory(id, careNote);
-                          setCareNote("");
-                        }}
-                      >
+                    onClick={() => {
+                      if (careNote.trim() === "") return;
+                      onAddCareHistory(id, careNote + " 🌿");
+                      setCareNote("");
+                    }}
+                  >
+                    
                         Add Note
                       </button>
 
