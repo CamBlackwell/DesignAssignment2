@@ -280,13 +280,50 @@
   background: rgb(51, 70, 57);
   width: 100%;
   height: 10%;
+  margin-right: 9cqi;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center ;
   justify-content: center;
   /* border: 2px solid black; */
 }
+
+
+.dashboard-total {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+}
+
+.dashboard-due {
+  color: red;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+  border: 1cqi;
+}
+.dashboard-tomorrow{
+  color: DarkOrange;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+  border: 1cqi;
+}
+
+.dashboard-ok {
+  color: Limegreen;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  margin-right: 3cqi;
+  margin-left: 3cqi;
+
+}
+
 
 .dashboard-container h2 {
   color: white;
@@ -295,12 +332,7 @@
   font-style: italic;
 }
 
-.dashboard-container h3 {
-  color: white;
-  margin: 5px;
-  font-family: Inter, sans-serif;
-  font-style: italic;
-}
+
 
 .header-buttons-group {
   display: flex;  

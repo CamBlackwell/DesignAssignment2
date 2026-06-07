@@ -31,7 +31,7 @@ function App() {
     const plant = plants.find(p => p.id === id);
     if (!plant) return;
     const mostRecentlyWatered = plant.lastWatered;
-    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay, careHistory: [...(p.careHistory || []), { day: currentDay, note: "Watered plant 💧" }] } : p));
+    setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay, needsWater: false, careHistory: [...(p.careHistory || []), { day: currentDay, note: "Watered plant 💧" }] } : p));
     toast(
       ({ closeToast }) => (
         <div>
@@ -56,18 +56,18 @@ function App() {
   }
 
   function addCareHistory(id, note) {
-  setPlants(plants.map(p =>
-    p.id === id
-      ? {
+    setPlants(plants.map(p =>
+      p.id === id
+        ? {
           ...p,
           careHistory: [
             ...(p.careHistory || []),
             { day: currentDay, note: note }
           ]
         }
-      : p
-  ));
-}
+        : p
+    ));
+  }
 
   return (
     <div className='App'>
@@ -98,7 +98,7 @@ function App() {
             currentDay={currentDay}
             onWater={waterPlant}
             careHistory={plant.careHistory}
-            onAddCareHistory= {addCareHistory}
+            onAddCareHistory={addCareHistory}
           />
         ))}
       </CardContainer>
