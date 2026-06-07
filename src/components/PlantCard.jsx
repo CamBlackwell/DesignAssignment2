@@ -10,9 +10,11 @@ function getUrgencyColour(daysUntilWater) {
   return '#478978';
 }
 
-function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater }) {
+function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater, careHistory, onAddCareHistory }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [logOpen, setLogOpen] = useState(false);
+  const [careNote, setCareNote] = useState("");
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -35,7 +37,9 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
             <p className="plant-card-species-bio">{species}</p>
           </h1>
           <div className="plant-card-top-buttons">
-            <button className="plant-card-log-button"> <GoBook className="book-icon" />Log</button>
+            <button className="plant-card-log-button" onClick={() => setLogOpen(true)}>
+            <GoBook className="book-icon" />Log
+            </button>
 
             <div className="plant-card-dropdown-wrapper" ref={dropdownRef}>
               <button
@@ -51,6 +55,45 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
                   <button className="delete-plant-dropdown"><IoMdTrash /> Delete Plant</button>
                 </div>
               )}
+
+                            {logOpen && (
+                <div className="care-log-overlay">
+                  <div className="care-log-popup">
+                    <h2> {name} care log</h2>
+
+                    {careHistory && careHistory.length > 0 ? (
+                      careHistory.map((entry, index) => (
+                        <div key={index} className="care-log-entry">
+                          <p><strong>Day:</strong> {entry.day}</p>
+                          <p><strong>Note:</strong> {entry.note}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No care history yet.</p>
+                    )}
+
+                    <input
+                        type="text"
+                        value={careNote}
+                        onChange={(e) => setCareNote(e.target.value)}
+                        placeholder="Describe care"
+                      />
+
+                      <button
+                        onClick={() => {
+                          if (careNote.trim() === "") return;
+                          onAddCareHistory(id, careNote);
+                          setCareNote("");
+                        }}
+                      >
+                        Add Note
+                      </button>
+
+                    <button onClick={() => setLogOpen(false)}>Close</button>
+                  </div>
+                </div>
+              )}
+
             </div>
 
           </div>
