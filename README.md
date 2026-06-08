@@ -1,12 +1,24 @@
-# When you merge into main, DO NOT GO ON THE MAIN BRANCH!
-Instead do this: 
+# Water Plant Website for Interactive Systems Design Assignment 2
 
-git add "ur files"
+## Prerequisites
 
-git commit -m "ur commit message"
+- **Node.js** v18+ (recommended: v20 LTS or v22 LTS)
+- **npm** 9+ (ships with Node)
 
-Then the important one
 
-gh pr create --title "The bug is fixed" --body "Everything works again"
 
-You can also just do this in github, because you might need to do some login stuff in ur terminal, but please do a pull request, it makes adding new stuff way easier
+## Quick Start
+
+```bash 
+git clone https://github.com/CamBlackwell/DesignAssignment2.git
+cd DesignAssignment2
+
+# We have dependencies so please install
+npm install
+
+npm start
+```
+
+The app opens at [http://localhost:3000](http://localhost:3000).
+
+:)
