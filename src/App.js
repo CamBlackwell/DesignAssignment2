@@ -12,14 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  //console.warn("hello atart")
-  //const [plants, setPlants]= useState([]);
-  //const [showForm, setShowForm] = useState(false);
-
   const [plants, setPlants] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
 
+  // sorts the plants and resets when a plant has been watered
   const sortedPlants = [...plants].sort((a, b) => {
     const aDaysUntilWater = a.urgency + a.lastWatered - currentDay;
     const bDaysUntilWater = b.urgency + b.lastWatered - currentDay;
@@ -27,11 +24,14 @@ function App() {
   }
   );
 
+  //Function for when the water plant button is pressed, will change only the single plant
   function waterPlant(id) {
     const plant = plants.find(p => p.id === id);
     if (!plant) return;
     const mostRecentlyWatered = plant.lastWatered;
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: currentDay, needsWater: false, careHistory: [...(p.careHistory || []), { day: currentDay, note: "Watered plant 💧" }] } : p));
+
+    //creates an popup with an undo feature
     toast(
       ({ closeToast }) => (
         <div>
@@ -43,18 +43,22 @@ function App() {
     );
   }
 
+  //undo feature of the popup
   function undoWaterPlant(id, mostRecentlyWatered) {
     setPlants(plants.map(p => p.id === id ? { ...p, lastWatered: mostRecentlyWatered } : p));
   }
 
+  //adds plant
   function addPlant(newPlant) {
     setPlants([...plants, { ...newPlant, id: Date.now(), lastWatered: currentDay }]);
   }
 
-  function passTime(plants) {
-    setCurrentDay(currentDate => currentDate + 1);
-  }
+  //old code for demo time pass
+  // function passTime(plants) {
+  //   setCurrentDay(currentDate => currentDate + 1);
+  // }
 
+  //for adding changes to the care history
   function addCareHistory(id, note) {
     setPlants(plants.map(p =>
       p.id === id
@@ -73,12 +77,14 @@ function App() {
     <div className='App'>
       <Header onOpenForm={() => setShowForm(true)} />
 
+      {/* for demo time passing */}
       <TimeButton plants={plants} setPlants={setPlants} currentDay={currentDay} setCurrentDay={setCurrentDay} />
 
       <Dashboard
         PlantsData={plants} dashTime={currentDay}
       />
 
+      {/* shows the add plant popup section */}
       {showForm && (
         <AddPlantForm
           onAddPlant={addPlant}
@@ -86,8 +92,9 @@ function App() {
         />
       )}
 
+      {/* for the cards, shows the sorted version from most urgent watering to least urgent */}
       <CardContainer>
-        {sortedPlants.map((plant, index) => (
+        {sortedPlants.map((plant) => (
           <PlantCard
             key={plant.id}
             id={plant.id}
@@ -104,6 +111,7 @@ function App() {
         ))}
       </CardContainer>
 
+      {/* popup design - reccomended from react-toastify website */}
       <ToastContainer
         position="bottom-right"
         autoClose={7000}

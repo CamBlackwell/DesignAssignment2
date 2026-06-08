@@ -4,18 +4,21 @@ import { GoBook } from "react-icons/go";
 import { IoIosWater, IoMdTrash } from "react-icons/io";
 import { PiPottedPlantFill } from "react-icons/pi";
 
+//checks the days until needing water and sets colour value depending on the result
 function getUrgencyColour(daysUntilWater) {
   if (daysUntilWater < 1) return '#8B0000';
   if (daysUntilWater == 1) return '#FCA311';
   return '#478978';
 }
 
+//all the plant card info 
 function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWater, careHistory, onAddCareHistory, photo }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [logOpen, setLogOpen] = useState(false);
   const [careNote, setCareNote] = useState("");
 
+  // dropdown listener, will close if you click outside the dropdown
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -27,7 +30,10 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
   }, []);
 
 
+  //for the colour and days until water value
   const daysUntilWater = urgency + lastWatered - currentDay;
+
+  //mainly just css stuff and divs to get the cards to look good, as well as the care history popup as it is dependent on the card
   return (
     <div className="PlantCard" style={{ backgroundColor: getUrgencyColour(daysUntilWater) }}>
       <div>
@@ -100,6 +106,7 @@ function PlantCard({ id, name, species, urgency, lastWatered, currentDay, onWate
           </div>
         </div>
 
+        {/* default plant image if there wasn't one added in add plant */}
         <img className="plant-image" src={photo || "/plant.jpg"} alt="Plant" />
         <div className="plant-card-footer">
           <h3>{daysUntilWater} Days Until Water</h3>
