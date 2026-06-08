@@ -1,5 +1,6 @@
 function TimeButton({ plants, setPlants, currentDay, setCurrentDay }) {
 
+  //resets time, slight bug here, it can add extra days to the plants if they are watered and then the reset is hit, didn't have time to fix as it is only for demo purposes anyway, probably dont need to use it at all only pass time
   function resetTime() {
     setCurrentDay(0);
     setPlants(prevPlants =>
@@ -10,6 +11,7 @@ function TimeButton({ plants, setPlants, currentDay, setCurrentDay }) {
     );
   }
 
+  //increments the time
   function passTime() {
     const newDay = currentDay + 1;
     console.warn(newDay);
@@ -24,6 +26,7 @@ function TimeButton({ plants, setPlants, currentDay, setCurrentDay }) {
     );
   }
 
+  // Time passing purple demo console in the bottom left
   return (
     <div className="demo-time-changer">
       <div className="demo-inside-section">
