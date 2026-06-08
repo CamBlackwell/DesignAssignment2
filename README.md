@@ -21,4 +21,4 @@ npm start
 
 The app opens at [http://localhost:3000](http://localhost:3000).
 
-:)
+Link to the github is https://github.com/CamBlackwell/DesignAssignment2
