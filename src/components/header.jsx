@@ -3,7 +3,7 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaList } from "react-icons/fa";
 import { PiPlant } from "react-icons/pi";
 
-
+//just header buttons really not much to discuss
 function Header({ onOpenForm }) {
   return (
     <div className="header-box">

@@ -14,6 +14,7 @@ function AddPlantForm({ onAddPlant, onClose }) {
   });
   const [errors, setErrors] = useState({ name: "" });
 
+  // updates formData state whenever an input/select changes. It clears any error for that field if one exists, and converts the urgency value to a number
   function handleChange(e) {
     const { name, value } = e.target;
 
@@ -27,6 +28,7 @@ function AddPlantForm({ onAddPlant, onClose }) {
     });
   }
 
+  //to deal with adding a custom photo
   function handlePhotoChange(e) {
     const photo = e.target.files[0];
     if (!photo) return;
@@ -36,7 +38,9 @@ function AddPlantForm({ onAddPlant, onClose }) {
     };
     reader.readAsDataURL(photo);
   }
+  //handles empty name, other select ones are already handled
 
+  // Validates name is non-empty (species & urgency rely on the HTML required attribute on their <select> elements), then adds the plant and closes the form 
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -50,6 +54,7 @@ function AddPlantForm({ onAddPlant, onClose }) {
     onClose();
   }
 
+  // comments not needed for this section as the blocks are the h4 titles
   return (
     <div className="AddPlantForm">
       <button className="AddPlantForm-cancel" type="button" onClick={onClose}>

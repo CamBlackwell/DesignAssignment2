@@ -1,6 +1,9 @@
 import App from "../App";
 import TimeButton from "./TimeButtonForReal";
 function Dashboard({ PlantsData, dashTime }) {
+
+  //Calculates the urgency of the plant data and then returns the ammount of each, updates whenever there are changes to the system
+
   const dueCount = PlantsData.filter(
     plant => plant.urgency + plant.lastWatered - dashTime <= 0
   ).length;
@@ -15,35 +18,9 @@ function Dashboard({ PlantsData, dashTime }) {
   const okCount = PlantsData.filter(
     plant => plant.urgency + plant.lastWatered - dashTime > 1
   ).length;
-  //let test = App();
 
-  // let dashTime = "aa" //test.getAppTime();
 
-  //dashTime = App.time;
-
-  // console.warn(dashTime);
-  //
-  // loadDash();
-  // function loadDash() {
-  //   while (index < PlantsData.length) {
-  //     console.warn("urgency", PlantsData[index]);
-  //     console.warn("time", dashTime);
-  //     if (PlantsData[index].urgency < dashTime) {
-  //       console.warn("this triggered");
-  //       overdueCount = overdueCount + 1
-  //     }
-  //     else if (PlantsData[index].needsWater == true) {
-  //       console.warn("bb", refresh);
-  //       internalwaterCount = waterCount + 1;
-  //     }
-  //     else if (PlantsData[index].needsWater == false) {
-  //       internalfineCount = fineCount + 1;
-  //     }
-  //     index = index + 1;
-  //   }
-  // }
-
-  // console.warn(dashTime);
+  //The various colours done in the css
   return (
     <div className="dashboard-container">
       {/* <h2>Dashboard</h2> */}
